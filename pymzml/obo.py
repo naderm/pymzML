@@ -136,11 +136,7 @@ class oboTranslator(object):
         #       version numbers, or get remote hosting of all of the versions
         #       and only download one at will on demand.
 
-        # Modify the root for cx_freeze
-        if getattr(sys, 'frozen', False):
-            obo_root = os.path.dirname(sys.executable)
-        else:
-            obo_root = os.path.dirname(__file__)
+        obo_root = os.path.dirname(__file__)
 
         obo_file = os.path.join(
             obo_root,
