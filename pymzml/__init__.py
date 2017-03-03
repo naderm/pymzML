@@ -37,4 +37,3 @@ import pymzml.run
 import pymzml.spec
 import pymzml.obo
 import pymzml.minimum
-import pymzml.plot
