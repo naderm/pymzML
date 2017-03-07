@@ -353,10 +353,10 @@ class Reader(object):
             chromcnt = 0
             speccnt = 0
             # regexes to be used
-            chromexp = re.compile(b"<\s*chromatogram[^>]*id=\"([^\"]*)\"")
-            chromcntexp = re.compile(b"<\s*chromatogramList\s*count=\"([^\"]*)\"")
-            specexp = re.compile(b"<\s*spectrum[^>]*id=\"([^\"]*)\"")
-            speccntexp = re.compile(b"<\s*spectrumList\s*count=\"([^\"]*)\"")
+            chromexp = re.compile(b"<\\s*chromatogram[^>]*id=\"([^\"]*)\"")
+            chromcntexp = re.compile(b"<\\s*chromatogramList\\s*count=\"([^\"]*)\"")
+            specexp = re.compile(b"<\\s*spectrum[^>]*id=\"([^\"]*)\"")
+            speccntexp = re.compile(b"<\\s*spectrumList\\s*count=\"([^\"]*)\"")
             # go to start of file
             fh.seek(0)
             prev_chunk = ""
