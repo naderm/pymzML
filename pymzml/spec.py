@@ -1179,8 +1179,7 @@ class Spectrum(dict):
                     hasPeak_result = self.hasPeak(target)
 
                     if len(hasPeak_result) > 1:
-                        print("Found more than one peak. This is not expected")
-                        sys.exit(1)
+                        raise Exception("Found more than one peak. This is not expected")
                     elif len(hasPeak_result) == 0:
                         break
                         # an isotope envelope is not supposed to have missing peaks
