@@ -166,6 +166,30 @@ class Reader(object):
         self.OT = self.__init_obo_translator(extraAccessions)
         return
 
+    def __getstate__(self):
+        state = self.__dict__.copy()
+        state["info"] = state["info"].copy()
+
+        del state["info"]["fileObject"]
+        del state["seeker"]
+        del state["iter"]
+
+        return state
+
+    def __setstate__(self, state):
+        self.__dict__.update(state)
+
+        self.info['fileObject'], self.info['seekable'] = self.__open_file(
+            self.info["filename"],
+            None,
+        )
+
+        if self.info['seekable']:
+            # Seekable files can use the index for random access
+            self.seeker = self._build_index(False)
+
+        self.__init_iter()
+
     def __determine_file_encoding(self, path):
         '''
         Determines mzML XML encoding using the information in the
