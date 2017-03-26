@@ -172,7 +172,9 @@ class Reader(object):
 
         del state["info"]["fileObject"]
         del state["seeker"]
-        del state["iter"]
+        
+        if "iter" in state:
+            del state["iter"]
 
         return state
 
